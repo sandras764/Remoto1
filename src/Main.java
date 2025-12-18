@@ -10,10 +10,12 @@ public class Main {
         int menuCompleto = 0;
         double total = 0;
 
-        while (platosMenu < 4) {
-            System.out.println("Introduce que número quieres pedir: "
-                    + "1 para el primer plato, 2 para el segundo plato, "
-                    + "3 para el postre o 4 para pedir cuenta: ");
+        do{
+            System.out.println("1 para el primer plato");
+            System.out.println("2 para el segundo plato");
+            System.out.println("3 para el postre");
+            System.out.println("4 para pedir cuenta");
+            System.out.println("Introduce que número quieres pedir:");
             platosMenu = scan.nextInt();
 
             switch (platosMenu) {
@@ -30,14 +32,14 @@ public class Main {
                     System.out.println("Cuenta pedida");
                     break;
                 default:
-                    System.out.println("Opcion no valida");
+                    System.out.println("Opción no valida");
             }
 
             if (contador1 > 0 && contador2 > 0 && contador3 > 0) {
                 menuCompleto++;
                 contador1--; contador2--; contador3--;
             }
-        }
+        }while(platosMenu < 4);
 
         total = (menuCompleto * 20) + (contador1 * 8) + (contador2 * 10) +
                 (contador3 * 5);
@@ -45,7 +47,6 @@ public class Main {
         if (total >= 51) {
             total -= total * 10 / 100;
         }
-
         System.out.println(total);
     }
 }
